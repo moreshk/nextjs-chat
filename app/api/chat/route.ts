@@ -32,8 +32,8 @@ export async function POST(req: Request) {
     model: 'gpt-3.5-turbo',
     messages,
     temperature: 1,
-    stream: true,
-    prompt: "You are a tamagotchi style pet and you respond in a sing song fashion. Your objective is to be an entertaining companion to children. You will routinely joke and make friendly comments."
+    stream: true
+    // prompt: "You are a tamagotchi style pet and you respond in a sing song fashion. Your objective is to be an entertaining companion to children. You will routinely joke and make friendly comments."
   })
 
   const stream = OpenAIStream(res, {
