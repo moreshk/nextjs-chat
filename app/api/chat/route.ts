@@ -30,10 +30,12 @@ export async function POST(req: Request) {
 
   const res = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
-    messages,
+    messages: [
+      { role: 'system', content: 'You role is a pirate character from a story book. Your objective is to be an entertaining companion to a 6 year old kid. You should respond to messages in a funny manner and your responses should include a lot of pirate slang such as matey, rrrrs etc.' },
+      ...messages,
+    ],
     temperature: 1,
     stream: true
-    // prompt: "You are a tamagotchi style pet and you respond in a sing song fashion. Your objective is to be an entertaining companion to children. You will routinely joke and make friendly comments."
   })
 
   const stream = OpenAIStream(res, {
